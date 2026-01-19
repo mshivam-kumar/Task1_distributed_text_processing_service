@@ -50,34 +50,19 @@ The client talks only to the central server. The server then routes requests to 
 
 3. Follow the menu to process text.
 
-## Example Usage
+## Console Output Screenshots
 
-```
-========================================
-   Text Processing Service Menu
-========================================
-  1. Convert text to UPPERCASE
-  2. Convert text to lowercase
-  3. Reverse text
-  4. Count number of words
-  5. Exit
-========================================
+### 1. Uppercase Conversion
+![Uppercase](console_output/1.png)
 
-Enter choice: 1
-Enter text: Hello World
-Result: HELLO WORLD
+### 2. Lowercase Conversion
+![Lowercase](console_output/2.png)
 
-Enter choice: 4
-Enter text: This is a test
-Result: 4
+### 3. Reverse Text
+![Reverse](console_output/3.png)
 
-Enter choice: 3
-Enter text:
-Error: Input text cannot be empty
-
-Enter choice: 5
-Exiting...
-```
+### 4. Word Count
+![Word Count](console_output/4.png)
 
 ## Error Handling
 
