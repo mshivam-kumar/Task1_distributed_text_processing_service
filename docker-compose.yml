@@ -1,0 +1,64 @@
+services:
+  # Text Processing Services
+  uppercase_service:
+    build: ./uppercase_service
+    container_name: uppercase_service
+    networks:
+      - text_processing_network
+    restart: unless-stopped
+
+  lowercase_service:
+    build: ./lowercase_service
+    container_name: lowercase_service
+    networks:
+      - text_processing_network
+    restart: unless-stopped
+
+  reverse_service:
+    build: ./reverse_service
+    container_name: reverse_service
+    networks:
+      - text_processing_network
+    restart: unless-stopped
+
+  wordcount_service:
+    build: ./wordcount_service
+    container_name: wordcount_service
+    networks:
+      - text_processing_network
+    restart: unless-stopped
+
+  # Central Server
+  central_server:
+    build: ./central_server
+    container_name: central_server
+    ports:
+      - "5000:5000"
+    networks:
+      - text_processing_network
+    depends_on:
+      - uppercase_service
+      - lowercase_service
+      - reverse_service
+      - wordcount_service
+    volumes:
+      - server_logs:/app/logs
+    restart: unless-stopped
+
+  # Client
+  client:
+    build: ./client
+    container_name: client
+    networks:
+      - text_processing_network
+    depends_on:
+      - central_server
+    stdin_open: true
+    tty: true
+
+networks:
+  text_processing_network:
+    driver: bridge
+
+volumes:
+  server_logs:
