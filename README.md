@@ -1,3 +1,7 @@
+Name: Shivam Kumar
+Roll No: 24210094
+Github Repo Link: https://github.com/mshivam-kumar/Task1_distributed_text_processing_service
+
 # Distributed Text Processing Service
 
 A simple distributed system that processes text using Docker containers. The client sends requests to a central server, which forwards them to specialized text processing services.
